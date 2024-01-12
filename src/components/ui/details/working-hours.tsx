@@ -23,7 +23,11 @@ const WorkingHours = ({ hours }: HoursProps) => {
       {open.map((item) => (
         <View key={item.day} style={styles.container}>
           <Text style={{ fontSize: 16, fontWeight: '700' }}>{DAYS[item.day as keyof typeof DAYS]}</Text>
-          <Text>{item.is_overnight ? '24 Hours' : `Open ${item.start} - Close ${item.end}`} </Text>
+          <Text>
+            {item.is_overnight
+              ? '24 Hours'
+              : `Open ${`${item.start.slice(0, 2)}:${item.start.slice(2)}`} - Close ${`${item.end.slice(0, 2)}:${item.end.slice(2)}`}`}
+          </Text>
         </View>
       ))}
     </View>
