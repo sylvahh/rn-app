@@ -1,21 +1,23 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet, FlatList } from 'react-native';
 import { BUSINESSES } from '../../../global.type';
-import RestaurantList, { ResturantListSkema } from './resturant-list';
+import RestaurantList, { ResturantListSkema } from './business-list';
 
 type ResturantCategoriesProps = {
   businesses: BUSINESSES[];
-  searchedTitle?: string
+  searchedTitle?: string;
 };
 
-const ResturantCategories = ({ businesses, searchedTitle }: ResturantCategoriesProps) => {
+const BusinessCategories = ({ businesses, searchedTitle }: ResturantCategoriesProps) => {
   const priceEffective = businesses.filter((business) => business.price && business.price.length === 1);
   const bitPricer = businesses.filter((business) => business.price && business.price.length === 2);
   const bigSpender = businesses.filter((business) => business.price && business.price.length > 2);
-  const buisnessesWithoutPrice = [{
-    title: `${searchedTitle} Businesses`, 
-    businesses,
-}]
+  const buisnessesWithoutPrice = [
+    {
+      title: `${searchedTitle} Businesses`,
+      businesses,
+    },
+  ];
 
   const categories = [
     {
@@ -32,19 +34,18 @@ const ResturantCategories = ({ businesses, searchedTitle }: ResturantCategoriesP
     },
   ];
 
-
   if (!priceEffective.length && !bitPricer.length && !bigSpender.length) {
-  return (
-    <FlatList
-      style={styles.container}
-      data={buisnessesWithoutPrice}
-      renderItem={({ item }) => {
-        return <RestaurantList  horizontal={false} {...item} />;
-      }}
-      keyExtractor={(item) => item.title}
-    />
-  );
-}
+    return (
+      <FlatList
+        style={styles.container}
+        data={buisnessesWithoutPrice}
+        renderItem={({ item }) => {
+          return <RestaurantList horizontal={false} {...item} />;
+        }}
+        keyExtractor={(item) => item.title}
+      />
+    );
+  }
   return (
     <FlatList
       style={styles.container}
@@ -63,12 +64,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResturantCategories;
-
-
-
-
-
+export default BusinessCategories;
 
 export const ResturantCategoriesSkema = () => {
   return (

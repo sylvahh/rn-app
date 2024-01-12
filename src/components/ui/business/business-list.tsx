@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, ScrollView, Animated, Easing } from 'react-native';
 import { BUSINESSES } from '../../../global.type';
-import ResturantCard, { ResturantCardSkema } from './resturant-card';
+import BusinessCard, { ResturantCardSkema } from './business-card';
 
 type RestaurantListProps = {
   title: string;
@@ -9,7 +9,8 @@ type RestaurantListProps = {
   horizontal: boolean;
 };
 
-const ResturantList = ({ title, businesses, horizontal }: RestaurantListProps) => {
+const BusinessList = ({ title, businesses, horizontal }: RestaurantListProps) => {
+  if (businesses.length < 1) return;
   return (
     <View style={{ width: 'auto' }}>
       <Text style={styles.title}>{title}</Text>
@@ -18,7 +19,7 @@ const ResturantList = ({ title, businesses, horizontal }: RestaurantListProps) =
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         data={businesses}
-        renderItem={({ item }) => <ResturantCard businesses={item} fullWidth={horizontal} />}
+        renderItem={({ item }) => <BusinessCard businesses={item} fullWidth={horizontal} />}
         keyExtractor={(item) => item.id}
       />
     </View>
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResturantList;
+export default BusinessList;
 
 export const ResturantListSkema = () => {
   const opacityValue = React.useRef(new Animated.Value(0)).current;

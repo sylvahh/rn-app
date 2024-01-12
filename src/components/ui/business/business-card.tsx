@@ -1,15 +1,15 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import imagePlaceHolder from '../assets/place-holder.png';
 import { BUSINESSES, RootStackParamList } from '../../../global.type';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { imagePlaceHolder } from '../../../constants/assets';
 
 type ResturantCardProps = {
   businesses: BUSINESSES;
   fullWidth: boolean;
 };
 
-const ResturantCard = ({ businesses, fullWidth }: ResturantCardProps) => {
+const BusinessCard = ({ businesses, fullWidth }: ResturantCardProps) => {
   const { id, image_url, name, rating, review_count, alias } = businesses;
   const Navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResturantCard;
+export default BusinessCard;
 
 // skema
 

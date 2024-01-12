@@ -202,4 +202,30 @@ const styles = StyleSheet.create({
 
 export default DetailsScreen;
 
-// backgroundColor: '#d1d1d192',  #d1d1d1d5
+  // <ScrollView>
+  //   <View style={styles.container}>
+  //     <DetailsHeader name={name} is_closed={is_closed} />
+  //     <View>
+  //       <Image source={{ uri: image_url }} alt={name} style={styles.image} />
+  //     </View>
+  //     <View style={styles.reviews}>
+  //       <Text style={styles.reviewText}>Rating {rating}</Text>
+  //       <Text style={styles.reviewText}>Review {review_count}</Text>
+  //     </View>
+
+  //     <View style={{ flexDirection: 'row', gap: 5 }}>
+  //       <Entypo name='location-pin' size={24} color='gray' />
+  //       <Address address={address} />
+  //     </View>
+
+  //     <View style={{ flexDirection: 'row', gap: 5 }}>
+  //       <Entypo name='phone' size={24} color='gray' />
+  //       <Phone phoneNumber={phone} />
+  //     </View>
+
+  //     <Categories categories={categories} />
+  //     <Photos photos={photos} />
+
+  //     <OpeningHours openingHours={hours} />
+  //   </View>
+  // </ScrollView>;
